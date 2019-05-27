@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <style> 
+    </style>
+</head>
+<body>
+    
+    <script>
+    // 1.去重
+    // var ary=[1,2,2,3,1,4];
+    // var ary1=[];
+    // for(var i=0;i<ary.length;i++){
+    //     if(ary1.indexOf(ary[i]==-1)){
+    //         ary1.push(ary[i]);
+    //     }
+    // }
+    // console.log(ary1);
+
+    // 2.对象属性名去重
+    // var ary=[1,2,2,3,1,4];
+    // var obj={};
+    // for(var i=0;i<ary.length;i++){
+    //     obj[ary[i]]=ary[i];
+    // }
+    // console.log(obj);
+    // var ary1=[];
+    // for(var key in obj){
+    //     ary1.push(obj[key]);
+    // }
+    // console.log(ary1);
+    
+    // 3.循环嵌套去重
+    // var ary=["a","b","c","a"];
+    // var ary1=[];
+    // for(var i=0;i<ary.length;i++){
+    //     var falt=0;
+    //     for(var j=0;j<ary1.length;j++){
+    //         if(ary[i]==ary1[j]){
+    //             falt=1;
+    //         }
+    //     }
+    //     if(falt==0){
+    //         ary1.push(ary[i]);
+    //     }
+    // }
+    // console.log(ary1);
+
+    // 4.先排序再去重
+    // 1.用sort排序，只要两项相等，相等的两项肯定挨着
+    // 2.比较相邻的两项，如果相邻的两项相等，删除其中一项。
+    // var ary=["a","b","a","a","c","b"];
+    // var ary1=[];
+    // ary.sort();
+    // console.log(ary);
+    // for(var i=0;i<ary.length-1;i++){
+    //     if(ary[i]==ary[i+1]){
+    //         ary.splice(i,1);
+    //         i--;
+    //     }
+    // }
+    // console.log(ary);
+
+    // // 复习
+    // // 1.push向数组末尾追加元素
+    // var ary=[1,2,3,4];
+    // var a=ary.push(2);
+    // console.log(ary);
+    // console.log(a);
+    // // 2.pop删除数组的最后一项
+    // var ary=[1,2,3,4];
+    // var a=ary.push();
+    // console.log(ary);
+    // console.log(a);
+    // // 3.unshift向数组最前面添加内容
+    // var ary=[1,2,3,4];
+    // var a=ary.unshift(2);
+    // console.log(ary);
+    // console.log(a);
+    // // 4.shift删除数组第一项
+    // var ary=[1,2,3,4];
+    // var a=ary.shift();
+    // console.log(ary);
+    // console.log(a);
+    // // 5.indexOf：检测数据中有没有某一项(第一次匹配)
+    // var ary=[1,2,3,4,2];
+    // var a=ary.indexOf(2);
+    // console.log(ary);
+    // console.log(a);
+    // // 6.lastIndexOf:检测数据中有没有某一项(最后一次匹配)
+    // var ary=[1,2,3,4,2];
+    // var a=ary.lastIndexOf(2);
+    // console.log(ary);
+    // console.log(a);
+    // // 7.slice：通过起始位置和结束位置的索引，截取到数组中的某一段数组（包前不包后）
+    // var ary=["a","b","b","a","c"];
+    // var a=ary.slice(2,4);
+    // console.log(ary);
+    // console.log(a);
+    // // 8.splice:从某一个索引开始删除n项。然后在删除的位置，添加新的内容
+    // var ary=["a","b","b","a","c"];
+    // var a=ary.splice(2,4,1,2);
+    // console.log(ary);
+    // console.log(a);
+    // // 9.sort：给数组从大到小排序
+    // var ary=["a","b","b","a","c"];
+    // var a=ary.sort();
+    // console.log(ary);
+    // console.log(a);
+    // // 10.reverse：将数组倒叙
+    // var ary=["a","b","b","a","c"];
+    // var a=ary.reverse();
+    // console.log(ary);
+    // console.log(a);
+    // // 11.concat：将数组拼接
+    // var ary=["a","b","b"];
+    // var a=ary.concat([1,2],[3,4]);
+    // console.log(ary);
+    // console.log(a);
+    // // 12.join:将数组的每一项通过字符串拼接成字符串
+    // var ary=["a","b","b","a","c"];
+    // var a=ary.join("---");
+    // console.log(ary);
+    // console.log(a);
+    // // 13.toString:将数组转成字符串
+    // var ary=["a","b","b","a","c"];
+    // var a=ary.toString();
+    // console.log(ary);
+    // console.log(a);
+
+    // // 1.先排序再去重
+    // var ary=["a","b","c","a","a","c"];
+    // ary.sort();
+    // console.log(ary);
+    // for(var i=0;i<ary.length;i++){
+    //         if(ary[i]==ary[i+1]){
+    //             ary.splice(i,1);
+    //             i--;
+    //     }
+    // }
+    // console.log(ary);
+    // 2.嵌套循环去重
+    // var ary=[1,3,2,1,2];
+    // var ary1=[];
+    // for(var i=0;i<ary.length;i++){
+    //     if(ary1.indexOf(ary[i])==-1){
+    //         ary1.push(ary[i]);
+    //     }
+    // }
+    // console.log(ary1);
+    // 3.对象属性名去重
+    // var ary=["a","b","c","a","c"]; 
+    // var obj={};
+    // var ary1=[];
+    // for(var i=0;i<ary.length;i++){
+    //     obj[ary[i]]=ary[i];
+    // }
+    // console.log(obj);
+    // for(var key in obj){
+    //     ary1.push(key);
+    // }
+    // console.log(ary1);
+    // 4.循环嵌套去重
+    // 创建新的空数组，将数组的每一项经过和新数组的数进行比较然后再添加
+    // var ary=["a","b","c","a","c"];
+    // var ary1=[];
+    // for(var i=0;i<ary.length;i++){
+    //     var panduan=0;
+    //     for(var j=0;j<ary1.length;j++){
+    //         if(ary[i]==ary1[j]){
+    //            panduan=1;
+    //     }
+    //     }
+    //     if(panduan==0){
+    //         ary1.push(ary[i]);
+    //     }
+    // }
+    // console.log(ary1);
+
+    // 1.冒泡排序
+    // var ary=[22,1,42,123,7];
+    // for(var i=0;i<ary.length-1;i++){
+    //     for(var j=0;j<ary.length-1-i;j++){
+    //         if(ary[j]>ary[j+1]){
+    //             var t=ary[j+1];
+    //             ary[j+1]=ary[j];
+    //             ary[j]=t;
+    //         }
+    //     }
+    // }
+    // console.log(ary);
+  
+    // 2.插入排序：与第一项、最后一项比较，和每一项比较
+    // var ary=[22,49,3,123,8,456];
+    // var ary1=[];
+    // // 先添加一项
+    // ary1.push(ary[0]);
+
+    // for(var i=0;i<ary.length;i++){
+    //     var a=ary[i];   //新添加的一项
+    //     for(var j=0;j<ary1.length;j++){
+    //         if(a<ary1[0]){
+    //             ary1.unshift(a);
+    //             break;
+    //         }
+    //         if(a>ary1[ary1.length-1]){
+    //             ary1.push(a);
+    //             break;
+    //         }
+    //         if(a<ary1[j]){
+    //             ary1.splice(j,0,a);
+    //             break;
+    //         }
+    //     }
+    // }
+    // console.log(ary1);
+
+    // 递归：
+    // 1+2+3+……+100
+    // function sum(num){
+    //     if(num==0){
+    //         return 0;
+    //     }
+    //     return num+sum(num-1);
+    // }
+    // var s=sum(100);
+    // console.log(s);
+
+// var total=0;
+// function sum(num){
+//     if(num>=0){
+//         total=total+num+sum(num-1);
+//     }
+//     return total;
+// }
+// console.log(sum(100));
+
+    // 把偶数相加
+    // function sum(num){
+    //     if(num==0){
+    //         return 0;
+    //     }
+    //     if(num%2==0){
+    //         // 偶数
+    //         return num+sum(num-1);
+    //     }else{
+    //         return sum(num-1);
+    //     }
+    // }
+    //  var a=sum(10);
+    // console.log(a);
+
+    // var total=0;
+    // function sum(num){
+    //     if(num==0){
+    //         return total;
+    //     }
+    //     if(num%2==0){
+    //         total=total+num+sum(num-1);
+
+    //     }else{
+    //         sum(num-1);
+    //     }
+    // }
+    // console.log(10);
+    
+   
+
+    // 快速排序（递归）
+    // 1.找出数组中间项；取出中间项，并且在原数组中删掉中间项。如果是奇数，取整
+    // 2.把数组中每一项和中间项比较，比中间项大的放到中间项右边，
+    //   比中间项小的放左边；（中间项的位置是准确的）
+    // 3.再去找左边、右边中间项
+    // ……
+    // 4.直到左侧或右侧只剩下一项时，结束
+    // var ary=[2,35,1,78,12];
+    // function paixu(a){
+    //     var index=parseInt(a.length/2);
+        
+    //     var right=[];
+    //     var left=[];
+    //     if(a.length<=1){
+    //         return a;
+    //     }
+    //     var middle=a.splice(index,1);
+    //     for(var i=0;i<a.length;i++){
+    //         if(ary[i]>middle){
+    //             // 右边
+    //             right.push(a[i]);
+    //         }
+    //         if(ary[i]<=middle){
+    //             // 左边
+    //             left.push(a[i]);
+    //         }
+    //     }
+    //     return paixu(left).concat(middle,paixu(right));
+    // }
+    // var b=paixu(ary);
+    // console.log(b);
+
+    // var ary=[2,45,7,123,48,16];
+    // var ary1=[];
+    // var a=parseInt(ary.length/2)
+    // if(a==0){
+    //     ary1.push(ary[a-1]);
+    // }
+    console.log((123.1151).toFixed(2));
+    </script>
+</body>
+</html>

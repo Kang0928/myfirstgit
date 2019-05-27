@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button id="btn">验证码</button>
+    <div id="box"></div> -->
+    <script>
+        // var box1=Math.round(Math.random()*10);
+        // var box2=Math.round(Math.random()*10);
+        // while(box1==box2){
+        //     box2=Math.round(Math.random()*10);
+        // }
+        // console.log(""+box1+box2);
+
+        // 随机四个数 不重复验证码
+        // var oBtn=document.getElementById("btn");
+        // var oBox=document.getElementById("box");
+        // oBtn.onclick=function(){
+        //     var str="abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ0123456789";
+        //     var str1="";
+        //     for(var i=0;i<4;i++){
+        //         var a=Math.round(Math.random()*(str.length-1));
+        //         str1=str1+""+str[a];
+        //         str=str.replace(str[a],"");
+        //     }
+        //     oBox.innerHTML=str1;
+        // }
+        // 不区分大小写
+        var oBtn=document.getElementById("btn");
+        var oBox=document.getElementById("box");
+        oBtn.onclick=function(){
+            var str1="";
+            while(str1.length<4){
+                var str="abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ0123456789";
+                var a=Math.round(Math.random()*61);
+                var newStr=str1.toUpperCase();
+                if(newStr.indexOf(str[a].toUpperCase())==-1){
+                    str1=str1+""+str[a]; 
+                }
+            }
+            oBox.innerHTML=str1;
+        }
+            
+        // String字符串：
+        // var str="aBcdEabc";
+        // var A1= str.toUpperCase();
+        // var A2= str.toLowerCase();
+        // var A3= str.charAt(2);
+        // var A4= str.charCodeAt(1);
+        // var A5= str.indexOf("c");
+        // var A6= str.lastIndexOf("a");
+        // var a1=str.substr(2,3);
+        // var a2=str.substring(2,3);
+        // var a3=str.slice(2,4);
+        // var a4=str.replace("B","#");
+        // var a5="abc".concat("def");
+        // console.log(a5);
+
+        // Date引用数据类型
+        var date=new Date(); //创建时间对象
+        var year=date.getFullYear(); //获取年
+        var mouth=date.getMonth();
+        var d=date.getDate();
+        var h=date.getHours();
+        var m=date.getMinutes();
+        var s=date.getSeconds();
+        var ms=date.getMilliseconds();
+        var day=date.getDay();
+        console.log(date);
+        console.log(year);
+        console.log(mouth);
+        var t=Date.now();
+        console.log(t);
+
+    </script>
+</body>
+</html>

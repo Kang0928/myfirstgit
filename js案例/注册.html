@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户注册</title>
+    <style>
+        .err-message{
+            color:red;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="form">
+        姓　名：<input type="text" placeholder="2~4位的汉字" id="username"><br>
+        <p class="err-message">*姓名格式错误</p>
+        年　龄：<input type="text" placeholder="0~120位的数字" id="age"><br>
+        <p class="err-message">*年龄格式错误</p>        
+        手机号：<input type="text" placeholder="手机号" id="phone"><br>
+        <p class="err-message">*手机号格式错误</p>  
+        邮　箱：<input type="text" placeholder="邮箱" id="email"><br>
+        <p class="err-message">*邮箱格式错误</p>  
+        密　码：<input type="password" placeholder="6-18位由字母数字下划线组成" id="password"><br>
+        <p class="err-message">*密码格式错误</p>  
+        <input type="submit"value="提交" id="btn">
+    </div>
+    <script>
+        var eForm=document.getElementById("form");
+        var eUserName=document.getElementById("username");
+        var eAge=document.getElementById("age");
+        var ePhone=document.getElementById("phone");
+        var eEmail=document.getElementById("email");
+        var ePassWord=document.getElementById("password");
+        var eBtn=document.getElementById("btn");
+        var eErrMessage=document.getElementsByClassName("err-message");
+
+        eBtn.onclick=function(){
+            //表单中的value都是字符串
+            //获取用户输入
+            // var strUsername=eUserName.value;
+            // var strAge=eAge.value;
+            // var strPhone=ePhone.value;
+            // var strEmail=eEmail.value;
+            // var strPassword=ePassWord.value;
+            var str=[];
+            str[0]=eUserName.value;
+            str[1]=eAge.value;
+            str[2]=ePhone.value;
+            str[3]=eEmail.value;
+            str[4]=ePassWord.value;
+
+            var regStr=[];
+            regStr[0]=/^[\u4e00-\u9fa5]{2,4}$/;
+            regStr[1]=/^(\d|[0-9]\d{1,3})$/;
+            regStr[2]=/^1[34578]\d{9}$/;
+            regStr[3]=/^\w+@(163|qq)\.(com|cn|com\.cn)$/;
+            regStr[4]=/^[a-zA-Z0-9]{6,18}$/;
+
+            for(var i=0;i<regStr.length;i++){
+                if(!regStr[i].test(str[i])){
+                //正则不匹配的情况
+                eErrMessage[i].style.opacity="1";
+            }
+            }
+            
+
+        }
+    </script>
+</body>
+</html>

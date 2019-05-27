@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组方法
+    </title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul> -->
+    <script>
+        // // 类数组，并不是数组，他是一个对象，他有索引，有length
+        // var oLis = document.getElementsByTagName("li");
+        // //将类数组转成数组
+        // var ary = Array.prototype.slice.call(oLis);//=[].__proto__.sclice.call()
+        // ary.pop();
+        // console.log(ary);
+        // //for循环方法转换数组
+        // var oLis = document.getElementsByTagName("li");
+        // var ary = [];
+        // for (var i = 0; i < oLis.length; i++) {
+        //     ary.push(oLis[i]);
+        // }
+
+        //类数组转数组的兼容性方法
+        //1.判断是不是标准浏览器
+        //2.是的话用[].sclice.call()
+        //3.不是的话用for循环
+        // var oLis = document.getElementsByTagName("li");
+        // function toArray(likeArray) {
+        //     var ary = [];
+        //     if (document.body.nextElementSibling === undefined) {
+        //         for (var i = 0; i < likeArray.length; i++) {
+        //             ary.push(likeArray[i]);
+        //         }
+        //     } else {
+        //         ary = [].slice.call(likeArray);
+        //         // ary.pop();
+        //     }
+        //     return ary;
+        //     console.log(ary);
+        // }
+        // console.log(toArray(oLis));
+        // console.log(toArray({0:1,1:2,length:2}));
+
+        //catch 异常捕获
+        // try{
+        //     console.log(a);
+        // }catch(s){
+        //     console.log(s);
+        // }
+        // console.log(1);
+
+        //用sort给数组中的对象排序
+        // var ary=[{id:100,name:"a"},
+        //          {id:200,name:"a"},
+        //          {id:130,name:"a"}]
+        // ary.sort(function(a,b){
+        //     return a.id-b.id;
+        // })
+        // console.log(ary);
+
+        //json:是一种数据格式，他不是一种数据类型，主要用于前后端数据交互
+        //json对象 就是一个对象，和对象的区别是属性名加引号
+        //json字符串
+        // '[{"id":100,"sex":"女","name":"a"}]'
+
+        // //json对象和json字符串之间相互转换
+        // var str='[{"id":100,"sex":"女","name":"a"}]';
+        // //window.JSON 在window下面有一个JSON属性
+        // var obj=window.JSON.parse(str);
+        // console.log(obj);
+
+        // var obj=[{id:100,sex:"女",name:"a"}];
+        // var str=window.JSON.stringify(obj);
+        // console.log(str);
+
+
+
+
+        //Push向数组末尾追加元素 原数组发生改变 返回新数组的长度
+        // var ary = [2, 13, 6, 98, 77];
+        // Array.prototype.push1 = function (){
+        //     for (var i = 0; i < arguments.length; i++) {
+        //         this[this.length] = arguments[i];
+        //     }
+        //     return this.length;
+        // }
+        // ary.push1(11, 12,13);
+        // console.log(ary);
+
+        //Pop删除数组最后一项，原数组发生改变 返回被删除的那一项
+        // var ary = [2, 13, 6, 98, 77];
+        // Array.prototype.pop1 = function () {
+        //     var s=this[this.length-1];
+        //     this.length--;
+        //     return s
+        // }
+        // var newary = ary.pop1();
+        // console.log(ary);
+        // console.log(newary);
+
+        //unshift想数组最前面添加内容，可以添加多个，原数组发生改变 返回新数组的长度
+        // var ary = [1, 2, 3];
+        // Array.prototype.unshift1 = function () {
+        //     var l=arguments.length+this.length;
+        //     for(var i=0;i<this.length;i++){
+        //         arguments[arguments.length++]=this[i];
+        //     }
+        //     for (var i = 0; i < l; i++) {
+        //         this[i] = arguments[i];
+        //     }
+        //     return this.length;
+        // }
+        // var newary=ary.unshift1(0, 22);
+        // console.log(ary);
+        // console.log(newary);
+
+        //shift删除数组第一项 原数组发生改变 返回被删除的那一项
+        // var ary = [1, 2, 3];
+        // Array.prototype.shift1 = function () {
+        //     var s=this[0];
+        //     for(var i=0;i<this.length-1;i++){
+        //         this[i]=this[i+1];
+        //     }
+        //     this.length=this.length-1;
+        //     return s;
+        // }
+        // var newary=ary.shift1();
+        // console.log(ary);
+        // console.log(newary);
+
+        //indexOf检测数组中有没有某一项 原数组不发生变化 
+        // 有的话返回该项索引 没有返回-1
+        // var ary=["a","b",1];
+        // Array.prototype.indexOf1 = function (s){
+        //     for(var i=0;i<this.length;i++){
+        //         if(s==this[i]){
+        //             return i;
+        //         }
+        //     }
+        //     return -1;
+        // }
+        // var newary=ary.indexOf1("b");
+        // console.log(newary);
+
+        // lastIndexOf检测数组中有没有某一项 原数组不发生改变
+        // 返回最后一次匹配的索引 没有的话返回-1
+        // var ary=["a","b",1,"b",2];
+        // Array.prototype.lastIndexOf1 = function (s){
+        //     var t=null;
+        //     for(var i=0;i<this.length;i++){
+        //         if(s==this[i]){
+        //             t=i;
+        //         }
+        //         if(i==this.length-1){
+        //             return t;
+        //         }
+        //     }
+        //     return -1;
+        // }
+        // var newary=ary.lastIndexOf1("b");
+        // console.log(newary);
+
+        // slice通过起始位置和结束位置的索引 截取数组中的某一段数组
+        // 原数组不发生改变
+        // 2参：截取m-n    *
+        // 1参：从m到最后  *
+        // 无参：截取整个数组  *
+        // 有负数：负数会默认加上数组的长度 *
+        // 前后参数相等：[]空数组 
+        // 返回截取的那段数组
+        // var ary = [1, 2, 3, 4, 5];
+        // Array.prototype.slice1 = function () {
+        //     var newary = [];
+        //     //判断参数是不是负数
+        //     for (var i = 0; i < arguments.length; i++) {
+        //         if (arguments[i] < 0) {
+        //             arguments[i] += this.length;
+        //         }
+        //     }
+        //     //如果参数1大于参数2
+        //     if(arguments[0] >arguments[1]){
+        //         var t=arguments[1];
+        //         arguments[1]=arguments[0];
+        //         arguments[0]=t;
+        //     } 
+        //     // 两个参数 或前后参数相等：[]空数组
+        //     if (arguments.length == 2) {
+        //         var s=arguments[1]-arguments[0];
+        //         var p=arguments[0];
+        //         for (var i = 0; i <s; i++) {
+        //             newary[i]=this[p++];
+        //         }
+        //         return newary;
+        //     }
+        //     //一个参数
+        //     if(arguments.length == 1){
+        //         var s=this.length-arguments[0];
+        //         var p=arguments[0];
+        //         for (var i = 0; i <s; i++) {
+        //             newary[i]=this[p++];
+        //         }
+        //         return newary;
+        //     }
+        //     // 无参：截取整个数组
+        //     if(arguments.length == 0){
+        //         newary=this;
+        //         return newary;
+        //     } 
+        // }
+        // var newary = ary.slice1(-1,1);
+        // console.log(ary);
+        // console.log(newary);
+
+        // splice从某一个索引开始删除n项 然后在删除的位置添加新的内容
+        // 返回被删除的项 原数组发生改变
+        // 1参：从n开始删除到最后
+        // 2参：从n开始删除n项
+        // 多参：从n开始删除n项 并添加新内容
+        // 删除0项 新内容添加到索引n的前面
+        var ary = [1, 2, 3, 4, 5];
+        Array.prototype.splice1 = function () {
+            //判断参数是不是负数
+            for (var i = 0; i < arguments.length; i++) {
+                if (arguments[i] < 0) {
+                    arguments[i] += this.length;
+                }
+            }
+            // 1参：从n开始删除到最后
+            if (arguments.length == 1) {
+                var s = this.length - arguments[0];
+                var newary = [];
+                var p = arguments[0];
+                for (var i = 0; i < s; i++) {
+                    newary[i] = this[p++];
+                }
+                this.length = this.length - s;
+                return newary;
+            }
+            // 2参：从n开始删除n项
+            if (arguments.length == 2) {
+                var newary = [];
+                var p = arguments[0];
+                for (var i = 0; i < arguments[1]; i++) {
+                    newary[i] = this[p++];
+                }
+                for(var i=arguments[0];i<this.length;i++){
+                        this[i]=this[i+arguments[1]];
+                    }
+                return newary;
+            }
+        }
+        var newary = ary.splice1(1,2);
+        console.log(ary);
+        console.log(newary);
+
+    </script>
+</body>
+
+</html>

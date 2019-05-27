@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="box" class="box">111</div>
+
+    <button class="btn">切换主题按钮</button>
+    
+    <script>
+        var style1="./style1.css";
+        var style2="./style.css";
+        var obtn=document.getElementsByClassName("btn")[0];
+        var olink=document.getElementsByTagName("link")[0];
+        obtn.onclick=function(){
+            var temp=olink.getAttribute("href");
+            if(temp==style1){
+                olink.setAttribute("href",style2);
+            }else{
+                olink.setAttribute("href",style1);
+            }
+            
+        }
+    </script>
+</body>
+</html>

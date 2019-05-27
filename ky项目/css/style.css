@@ -1,0 +1,128 @@
+* {
+    margin: 0px;
+    padding: 0px;
+/* overflow: hidden; */
+}
+/* 盒子0 */
+#box {
+    width: 200px;
+    height: 700px;
+    background-color: #324157;
+    float: left;
+}
+
+#box>ul>li {
+    list-style: none;
+    margin: 0 auto;
+    padding: 10px 0px;
+    line-height: 36px;
+    font-size: 20px;
+    text-align: center;
+    color: lightgray;
+    background-color: #324157;
+}
+ul>li{
+    list-style: none;
+    margin: 0 auto;
+    padding: 10px 0px;
+    line-height: 36px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.uls{
+    display: none;
+    background: rgba(255,255,255,.1);
+}
+.spans{
+    display: block;
+    position: relative;
+}
+/* .spans:after{
+    content: " ";
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translateY(-50%) rotate(45deg);
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+} */
+.spans:after{
+    content: " ";
+    position: absolute;
+    right: 40px;
+    top: 75%;
+    width: 0px;
+    height: 15px;
+    transform: translateY(-25%);
+    border-width:0 30px 30px;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid gray;
+    margin:0px auto;
+}
+.spans.active:after{
+    content: " ";
+    position: absolute;
+    right: 40px;
+    top: 75%;
+    width: 0px;
+    height: 15px;
+    transform: translateY(-25%);
+    border-width:0 30px 30px;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid gray;
+    margin:0px auto;
+}
+
+/* 盒子1 */
+#box1{
+    height: 80px;
+    /* border: 2px solid darkseagreen; */
+    margin-bottom:40px; 
+    width: 85%;
+    float: left;
+    background: #9aa5b44b;
+    position:absolute;
+    right: 0px;
+    top:0px;
+}
+/* 盒子2 */
+#box2{
+    position:absolute;
+    right: 0px;
+    top:90px;
+    /* border: 1px solid red; */
+    width:75%;
+    height: 600px;
+    float: left;
+    margin:30px 50px;
+    /* display: none; */
+}
+#table1{
+    border-collapse:collapse;
+}
+#table1 tr{
+    border-bottom: 1px solid #9aa5b48c;
+    border-collapse:collapse;
+}
+#table1 th
+{
+    background: #9aa5b44b;
+    height:80px; 
+    width: 250px;
+}
+#table1,th, td
+{
+    /* border: 1px solid #324157; */
+    /* border: 1px solid #438f56; */
+     text-align:center; 
+     height:50px;
+     
+
+}

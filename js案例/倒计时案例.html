@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时案例</title>
+    <style>
+        /* 时钟样式 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        ul{
+            width:360px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        li{
+            float:left;
+            width:60px;
+            font-size: 20px;
+            line-height: 60px;
+            text-align: center;
+            position: relative;
+        }
+        li:after{
+            content: "";
+            position: absolute;
+            left:100%;
+            top:0;
+            width: 1px;
+            height: 60px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+    </ul>
+    <!-- <div id="box"></div> -->
+    <script>
+        // 倒计时案例
+        // 1.取：结束时间-当前时间
+        // 2.让结束时间-当前时间（用时间戳）
+        // 3.差值毫秒→几小时几分几秒
+        // 4.每过1秒转化1次 每过1秒重新渲染1次
+        // 注意：浏览器在执行定时器时，识别不了1毫秒；不同浏览器最小识别单位不同。
+        // 
+        // var oBox=document.getElementById("box");
+
+        // setInterval(function(){
+        //     var endDate=new Date("2019-5-6 13:0:0");
+        // // 还有多长时间结束
+        // var tNum=(endDate.getTime()-Date.now())/1000;
+        // if(tNum<0){
+        //     clearInterval(1);
+        //     return;
+        // }
+        // //秒→时分秒
+        // var h=Math.floor(tNum/60/60);
+        // var m=Math.floor((tNum/60/60-h)*60);
+        // var s=Math.floor(((tNum/60/60-h)*60-m)*60);
+
+        // oBox.innerHTML="距离下课："+formateTime(h)+"时:"+formateTime(m)+"分:"+formateTime(s)+"秒";
+        // },1000);
+
+        // // 小于10加0
+        // function formateTime(num){
+        //     if(num<10){
+        //         num="0"+num;
+        //     }
+        //     return num;
+        // };
+
+        // 时钟
+        fn=["getFullYear","getMonth","getDate","getHours","getMinutes","getSeconds"];
+        var oBox=document.getElementById("box");
+        setInterval(function(){
+            oBox.innerHTML="";
+            var date=new Date();
+            for(var i=0;i<6;i++){
+                var y=date[fn[i]]();
+                if(fn[i]=="getMonth"){
+                    y+=1;
+                }
+                if(y<10){
+                    y="0"+y;
+                }
+                var oli=document.createElement("li");
+                oli.innerHTML=y;
+                oBox.appendChild(oli);
+            }
+        },1000);
+    </script>
+</body>
+</html>

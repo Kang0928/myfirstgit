@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* .form-container{
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 100px auto;
+        }
+        .form-container .err-message{
+            color: red;
+            display: none;
+        } */
+        #box{
+            width: 300px;
+            height: 400px;
+            /* padding: 50px 20px 30px 40px; */
+            margin: 20px;
+            border: 10px solid pink;
+            overflow: scroll;
+        }
+        #box p{
+            margin-top: 10px;
+            height: 300px;
+            width: 350px;
+            background: rgba(125, 233, 17, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="form-container">
+        手机号：<input type="text" placeholder="手机号" id="phone" /><br>
+        <p class="err-message" id="err">手机号格式不正确</p>
+        <button id="btn">提交</button>
+    </div> -->
+    <div id="box">
+        <p>njsafz;jn;hdoha多福多寿付多所所多错错错错错错错错错错错错错错错错错错错错错错错司法所发生snclzxnchdiahoaw 付项目设计大赛就算了卡大家我就问你撒灿烂农村lkjbb</p>
+        <p>njsafz;jn;hdoha多福多寿付多所所多错错错错错错错错错错错错错错错错错错错错错错错司法所发生snclzxnchdiahoaw 付项目设计大赛就算了卡大家我就问你撒灿烂农村lkjbb</p>
+        <p>njsafz;jn;hdoha多福多寿付多所所多错错错错错错错错错错错错错错错错错错错错错错错司法所发生snclzxnchdiahoaw 付项目设计大赛就算了卡大家我就问你撒灿烂农村lkjbb</p>
+    </div>
+
+    <script>
+        var oBox=document.getElementById("box");
+        // console.log(typeof(oBox.clientHeight));
+        // console.log(oBox.clientHeight);
+        // console.log(oBox.clientWidth);
+        // console.log(oBox.clientHeight+oBox.clientWidth);
+        var num=0;
+        var timer=setInterval(function(){
+            num+=20;
+            oBox.scrollTop=num;
+
+            if(num>200){
+                clearInterval(timer);
+            }
+        },500);
+
+
+        // 获取提交按钮元素
+        // var eBtn = document.getElementById("btn");
+        // var ePhone = document.getElementById("phone");
+        // var eErr = document.getElementById("err");
+
+        // eBtn.onclick = function(){
+            // 验证用户输入
+            // 元素（表单元素）.value 用来获取表单的内容
+            // 元素（表单元素）.value = 1 value属性是可读写的
+
+            // var strPhone = ePhone.value;
+            //手机号正则
+            // var reg = /^1[34578]\d{9}$/;
+            // 有效数字的正则
+            // var reg = /^[+-]?\d+(\.\d+)?$/;
+            //邮箱正则
+            // var reg = /^\w+@(163|qq)\.(com|cn|com\.cn)$/;
+            //姓名正则
+            // var reg = /^[\u4e00-\u9fa5]{2,4}$/;
+        //     if(reg.test(strPhone)){
+        //         // 是手机号，红色提示取消
+        //         eErr.style.display = "none";
+        //         console.log(reg.test(strPhone));
+        //     }else{
+        //         // 不是手机号，出现红色提示
+        //         eErr.style.display = "block";
+        //         console.log(reg.test(strPhone));
+        //     }
+        // }
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向对象选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        #box1,#box2{
+            float: left;
+            width:300px;
+            border: 1px solid #ccc;
+            height: 300px;
+            margin: 0 30px;
+        }
+        #box1 div,#box2 div{
+            display: none;
+        }
+
+        ul,li{
+            list-style: none;
+        }
+        ul{
+            overflow: hidden;
+        }
+        li{
+            float:left;
+            width: 100px;
+            line-height: 30px;
+            border-bottom:1px solid #ccc;
+            text-align: center;
+           
+        }
+        li.on{
+            background: red;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <ul>
+            <li class="on">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div style="display:block">11</div>
+        <div>22</div>
+        <div>33</div>
+    </div>
+    <div id="box2">
+            <ul>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+            <div style="display:block">11</div>
+            <div>22</div>
+            <div>33</div>
+        </div>
+    <script>
+        // 选项卡构造函数
+        function Tab(oLis,oDivs){
+            this.oLis=oLis;
+            this.oDivs=oDivs;
+        }
+        Tab.prototype.bindEvent=function(){
+            var that=this;
+            for(var i=0;i<this.oLis.length;i++){
+                this.oLis[i].onclick=(function(n){
+                    return function(){
+                        for(var j=0;j<that.oDivs.length;j++){
+                        that.oDivs[j].style.display="none";
+                        that.oLis[j].className="";
+                    }
+                    this.className="on";
+                    that.oDivs[n].style.display="block";
+                    }
+                })(i);
+            }
+        };
+        
+        // 选项卡1
+        var oBox1=document.getElementById("box1");
+        var oLis1=oBox1.getElementsByTagName("li");
+        var oDivs1=oBox1.getElementsByTagName("div");
+        var tab1=new Tab(oLis1,oDivs1);
+        tab1.bindEvent();
+
+        // 选项卡2
+        var oBox2=document.getElementById("box2");
+        var oLis2=oBox2.getElementsByTagName("li");
+        var oDivs2=oBox2.getElementsByTagName("div");
+        var tab2=new Tab(oLis2,oDivs2);
+        tab2.bindEvent();
+
+    </script>
+</body>
+</html>

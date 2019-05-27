@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>瀑布流</title>
+    <style>
+        html,
+        body,
+        div,
+        p,
+        img,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .container>ul {
+            float: left;
+            width: 180px;
+            padding: 10px;
+        }
+
+        .container>ul>li {
+            background: #eee;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .container>ul>li p {
+            font-size: 16px;
+            line-height: 24px;
+            color: #666;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <ul>
+            <!-- <li>
+                        <img src="./img/1.jpg" alt="">
+                        <p>手动阀手动阀手动阀</p>
+                    </li> -->
+        </ul>
+        <ul> </ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+    <script src="utils.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
