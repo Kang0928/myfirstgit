@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        ;(function (designWidth){
+            function computedFont(){
+                let winW=document.documentElement.clientWidth || document.body.clientWidth;
+                document.documentElement.style.fontSize= winW / designWidth * 100 +'px';
+            }
+            computedFont();
+            window.addEventListener('resize',computedFont);
+            // orientationchange 事件时手机横屏书评才会显示
+            window.addEventListener('orientationchange',computedFont);
+        })(750);
+    </script>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet/less" href="./css/index.less">
+    <script src="./js/less-2.5.3.min.js"></script>
+    <title>QQ音乐</title>
+</head>
+<body>
+    <section class="container">
+        <!-- 音频文件 -->
+        <audio src="./img/myDream.m4a" id="audio"></audio> 
+        <!-- 背景图 -->
+        <div class="backgroundImg"></div>
+        <!-- 背景图的蒙层 -->
+        <div class="bg"></div>
+        <header class="header">
+            <img src="img/myDream.jpg" alt="" srcset="">
+            <div class="song">
+                <p>我的梦</p>
+                <p>张靓颖</p>
+            </div>
+            <a href="javascript:;" class="musicBtn" id="musicBtn"></a>
+        </header>
+        <main class="main">
+            <div class="wrapper">
+                <p>撒快捷登录不了是不是拉不上</p>
+                <p>士大夫表上蕲</p>
+                <p>的身份深V是不了是不是拉不上</p>
+                <p>最出色的辅导费</p>
+                <p>撒第三方娃子小程序是拉不上</p>
+                <p>阿达的武器为城市的表上蕲</p>
+            </div>
+        </main>
+        <footer class="footer" id="footer">
+            <div class="progress" id="progress">
+                <span class="current">00:00</span>
+                <span class="duration">02:00</span>
+                <div class="prodg" id="prodg">
+                    <div class="already"></div>
+                </div>
+            </div>
+            <a href="javascript:;" class="down" id="down">下载这首音乐</a>
+        </footer>
+    </section>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/myself.js"></script>
+</body>
+</html>

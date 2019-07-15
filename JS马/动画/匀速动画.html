@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>匀速动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            /* 默认值 position:static */
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            background: #00b38a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box"></div>
+    <script src="./utils.js"></script>
+    <script>
+        //需求:让页面中的div#box在2s内匀速运动到Left为800的位置
+        let { css } = window.utils;
+        let box = document.getElementById('box');
+        // 过度时间
+        let durstion = 2000; //动画运动时间
+        //终点位置
+        let target = 800;
+        // 求起点的坐标位置
+        let begin = css(box, 'left');
+        //求路程:终点坐标-起点坐标
+        let change = target - begin;
+        //求速度:路程/时间
+        let speed = change / durstion;
+        // 记录运动时间
+        let curT = 0;
+        //定时执行间隔 
+        let interval = 10;
+
+        let timerId = setInterval(() => {
+            curT += interval; //1.让时间累加
+            if (curT >= durstion) {//2.过界判断
+                clearInterval(timerId);
+                // curT=durstion;
+                css(box, 'left', target);//直接把元素设置到终点
+                console.log('终于跑完了');
+                return; //上面一行代码已经把元素设置到终点了,后面的代码不需要执行了
+            }
+            let curLeft = Linear(curT, begin, change, durstion); //3.求经过curT时间后元素所处的位置
+            css(box, 'left', curLeft); //4.把curLeft设置给box
+        }, interval)
+        // 已知:当前路程change,起点位置begin,以及总时间duration
+        //研究:经过curT时间后,元素所处的位置的公式
+
+        //Linear 元素做匀速直线运动,经过curT时间后所处的位置的坐标
+        function Linear(curT, begin, change, durstion) {
+            return (change / durstion) * curT + begin;
+        }
+    </script>
+</body>
+
+</html>

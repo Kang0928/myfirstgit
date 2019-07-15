@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        ;(function bindWidth(winw){
+            function computedBind(){
+                let W=document.documentElement.clientWidth || document.body.clientWidth;
+                document.documentElement.style.fontSize=W / winw * 100 + 'px';
+            }
+            computedBind();
+            window.addEventListener('resize',computedBind);
+            window.addEventListener('orientationchange',computedBind);
+        })(750);
+    </script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    html{
+        font-size: 100px;
+    }
+    .box{
+        width:5rem;
+        height: 5rem;
+        position: absolute;
+        left:50%;
+        top: 50%;
+        margin-left:-2.5rem;
+        margin-top:-2.5rem;
+        background-color:lightgreen;
+        opacity: 0.5;   
+    }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+// 如果在盒子的x或者y方向上手指滑动的距离超过30px，就把这个盒子的opacity的值设为1，否则就让盒子旋转540度；
+        let box = document.querySelector('.box');
+
+// 思路：在触摸元素时，记录下触摸点的初始位置坐标；监听元素touchmove事件，在移动时会不断的触发touchmove事件，并且可以通过事件对象获取当前手指所处的位置坐标，用当前的位置减去起始位置判断手指头移动的距离是否超过30px，并且把是否超过30的结果保存起来；当手指头离开元素时，即touchend触发时，要根据是否移动了30px，做不同的操作；
+box.addEventListener('touchstart',function(e){
+    this.startX=e.touches[0].clientX;
+    this.startY=e.touches[0].clientY;
+    this.panduan=false;
+    this.style.transform = 'rotate(0)';
+})
+box.addEventListener('touchmove',function(e){
+    let endX=e.changedTouches[0].clientX;
+    let endY=e.changedTouches[0].clientY;
+    this.a=Math.abs(this.startX - endX)>30;
+    this.b=Math.abs(this.startY - endY)>30;
+    this.panduan= this.a || this.b ;
+})
+box.addEventListener('touchend',function(e){
+    this.style.transition = 'all .5s linear 0s';
+    if(this.panduan){
+        this.style.opacity=1;
+    }else{
+        this.style.transform = 'rotate(540deg)';
+        console.log(1)
+    }
+})
+    </script>
+</body>
+
+</html>

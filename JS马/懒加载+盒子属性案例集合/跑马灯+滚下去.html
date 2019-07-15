@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        /* 跑马灯样式开始 */
+        #box {
+            width: 800px;
+            height: 200px;
+            border: 1px dashed palevioletred;
+            margin: 0 auto;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        #contier {
+            height: 200px;
+        }
+
+        #contier li {
+            width: 200px;
+            float: left;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .clearfix:after {
+            display: block;
+            content: '';
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+
+        /* 跑马灯样式结束 */
+
+        /* 滚到底样式 */
+        #gunbox{
+            width:200px;
+            height: 300px;
+            margin: 0 auto;
+            margin-top: 30px;
+            overflow: hidden;
+            overflow: scroll;
+        }
+        #btnbox{
+            width: 200px;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        #btnbox button{
+            width: 70px;
+            padding: 10px;
+            margin-left: 18px;
+        }
+        /* 滚到底样式结束 */
+    </style>
+</head>
+
+<body>
+    <!-- 跑马灯开始 -->
+    <div id="box">
+        <ul id="contier" class="clear">
+            <li><img src="跑马灯img/1.jpg"></li>
+            <li><img src="跑马灯img/2.jpg"></li>
+            <li><img src="跑马灯img/3.jpg"></li>
+            <li><img src="跑马灯img/4.jpg"></li>
+    </div>
+    </div>
+    <script>
+        let eBox = document.getElementById('box');
+        let econtier = document.getElementById('contier');
+        let elis = document.querySelectorAll('#contier > li');
+
+        //复制ul并添加到页面中
+        econtier.innerHTML += econtier.innerHTML;
+        //设置长度 让8张图片在同一行
+        econtier.style.width = '1600px';
+
+        setInterval(function () {
+            eBox.scrollLeft += 2;
+            if (eBox.scrollLeft >= 800) {
+                eBox.scrollLeft = 0;
+            }
+        }, 20)
+    </script>
+    <!-- 跑马灯结束 -->
+
+    <!-- 滚到底开始 -->
+    <div id="gunbox">
+        <span>鉴于目前安投融（北京）网络科技有限公司（爱投资平台运营主体）在北京市海淀区中科资源大厦原有办公场地租赁合同约定期限临近到期，因为持续有个别出借人在工作场地的过激行为造成物业侧不良影响，物业目前不同意续租，因此平台办公地点可能搬离，目前也在积极与物业协商续约可能。
+            同时，平台也在积极寻找附近新的合适办公场地，如确认搬迁，会在搬迁完毕后第一时间通过网站公布新办公场地。请各位出借人了解并悉知，切勿造成不必要的恐慌和听信谣言。
+            鉴于目前安投融（北京）网络科技有限公司（爱投资平台运营主体）在北京市海淀区中科资源大厦原有办公场地租赁合同约定期限临近到期，因为持续有个别出借人在工作场地的过激行为造成物业侧不良影响，物业目前不同意续租，因此平台办公地点可能搬离，目前也在积极与物业协商续约可能。
+            同时，平台也在积极寻找附近新的合适办公场地，如确认搬迁，会在搬迁完毕后第一时间通过网站公布新办公场地。请各位出借人了解并悉知，切勿造成不必要的恐慌和听信谣言。
+            鉴于目前安投融（北京）网络科技有限公司（爱投资平台运营主体）在北京市海淀区中科资源大厦原有办公场地租赁合同约定期限临近到期，因为持续有个别出借人在工作场地的过激行为造成物业侧不良影响，物业目前不同意续租，因此平台办公地点可能搬离，目前也在积极与物业协商续约可能。
+            同时，平台也在积极寻找附近新的合适办公场地，如确认搬迁，会在搬迁完毕后第一时间通过网站公布新办公场地。请各位出借人了解并悉知，切勿造成不必要的恐慌和听信谣言。
+        </span>
+    </div>
+    <div id="btnbox">
+            <button class="btn1">取消</button>
+            <button class="btn2" disabled>确定</button>
+    </div>
+    <script>
+        let eGunBox=document.getElementById("gunbox");
+        let eBtns=document.querySelectorAll("#btnbox > button");
+        eBtns[1].onclick=function(){
+            alert('恭喜你注册成功!');
+        }
+        eGunBox.onscroll=function(){
+            if(eGunBox.scrollTop >= eGunBox.scrollHeight - eGunBox.clientHeight){
+                eBtns[1].disabled=false;
+            }
+        }
+    </script>
+    <!-- 滚到底结束 -->
+</body>
+
+</html>

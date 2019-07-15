@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            border: solid 2px peachpuff;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            background: palegoldenrod;
+        }
+        /* 鼠标丢失的解决方案:
+        1.把元素和鼠标绑定在一起 setCapture()方法;当拖拽结束后,
+          再解绑 元素.releaseCapture();【Chrome不兼容,IE和FF(FireFix)可以使用】
+        2.事件委托
+        
+        */
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box" style="left: 100px;top:100px;">
+    </div>
+    <script>
+        let box = document.getElementById('box');
+        box.onmousedown = dragStart;
+        document.onmouseup = dragEnd;
+        function dragStart(e) {
+            //记录鼠标按下时的坐标 和 盒子的初始left top
+            this.startX = e.pageX;
+            this.startY = e.pageY;
+            this.startL = parseFloat(this.style.left);
+            this.startT = parseFloat(this.style.top);
+            document.onmousemove = dragMove.bind(this);
+        }
+        function dragMove(e) {
+            //实现鼠标跟随
+            //1.计算从鼠标按下到当前位置鼠标走过的路程
+            let moveX = e.pageX - this.startX;
+            let moveY = e.pageY - this.startY;
+            //2.计算元素到当前位置需要的left和top值
+            let curL=this.startL+moveX;
+            let curT=this.startT+moveY;
+            //3.把curT和curL设置给元素
+            box.style.left=curL+'px';
+            box.style.top=curT+'px';
+        }
+        function dragEnd(e) {
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+
+</html>

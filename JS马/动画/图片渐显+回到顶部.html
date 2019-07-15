@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        background: rgb(255, 210, 244);
+    }
+
+    .box {
+        width: 500px;
+        height: 400px;
+    }
+
+    .box img {
+        width: 100%;
+        opacity: 0;
+    }
+    .box1{
+        height: 5000px;
+    }
+    .btn {
+        position:fixed;
+        bottom: 10px;
+        right: 10px;
+        border: 0px;
+        width: 100px;
+        line-height: 80px;
+        text-align: center;
+        background: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <div id='box' class="box">
+        <img src="./懒加载+盒子属性案例集合/懒加载/img/1.jpg" alt="" srcset="">
+    </div>
+    <div id="box1" class="box1"></div>
+    <div id='btn' class="btn">回到顶部</div>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let { css,win } = window.utils;
+
+    //渐隐渐显动画
+    function setOpacity() {
+        let img = document.querySelector('.box img');
+        let op = parseFloat(css(img, 'opacity'));
+        let timer = setInterval(function () {
+            op += 0.03;
+            if (op == 1) {
+                clearInterval(timer);
+                op = 1;
+            }
+            css(img, 'opacity', op);
+        }, 16)
+    }
+    setOpacity();
+
+    //返回顶部
+    function returnTop() {
+        let btn=document.querySelector('.btn');
+        let time=2000;
+        btn.onclick=function(){
+            let winScrollT=win('scrollTop');
+            let speed = winScrollT / time;
+            let curT=0;
+            if(winScrollT <=0){
+                clearInterval(this.timer);
+            }
+            if(this.timer){
+                clearInterval(this.timer);
+                // return;
+            }
+            this.timer=setInterval(()=>{
+                curT += 16;
+                if(curT >= time){
+                    clearInterval(this.timer);
+
+                }
+                winScrollT -= 16 * speed;
+                win('scrollTop',winScrollT);
+            },16)
+        }
+
+    }
+    returnTop();
+</script>
+
+</html>

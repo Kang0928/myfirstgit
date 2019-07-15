@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    .wrapper {
+      margin: 30px auto;
+      width: 400px;
+    }
+
+    .fileBox {
+      margin: 15px;
+      width: 300px;
+      height: 300px;
+      border: 3px dashed #00b38a;
+      text-align: center;
+    }
+
+    .fileBox:before {
+      content: '+';
+      font-size: 40px;
+      line-height: 300px;
+    }
+
+    .fileList li {
+      padding-left: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <ul class="fileList" id="fileList">
+      <li>
+        1. class.txt
+      </li>
+      <li>
+        2. 一曲相思.mp3
+      </li>
+    </ul>
+    <div class="fileBox" id="fileBox"></div>
+  </div>
+  <script>
+    let fileList = document.getElementById('fileList');
+    let lis = document.querySelectorAll('.fileList > li');
+    let fileBox = document.getElementById('fileBox');
+    //放置元素绑定事件
+    fileBox.ondragover = function (e) {
+      e.preventDefault();
+    }
+    fileBox.ondrop = function (e) {
+      e.preventDefault();
+      let ele = e.dataTransfer.files;
+      lis[0].innerText = ele[0].name;
+      if (ele.length == 2) {
+        lis[1].innerText = ele[1].name;
+      }
+      if (ele.length >= 3) {
+        let str = '';
+        for (let i = 2; i < ele.length; i++) {
+          str += `<li>${ele[i].name}</li>`;
+        }
+
+        fileList.innerHTML += str;
+      }
+    }
+  </script>
+</body>
+
+</html>

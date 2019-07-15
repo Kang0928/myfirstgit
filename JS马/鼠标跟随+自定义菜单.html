@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标跟随+自定义菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            border-radius: 50%;
+        } */
+        ul li {
+            list-style: none;
+        }
+        ul {
+            display: none;
+            position: absolute;
+            width: 200px;
+            border: 1px solid skyblue;
+        }
+        ul li {
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-bottom: 1px solid #000;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 鼠标跟随 -->
+    <!-- <div class="box" id="box" style="width:200px; height:200px; 
+    left:0; top:0;"></div>
+    <script src="./utils.js"></script>
+     <script>
+        /*
+          实现一个鼠标跟随效果:
+
+          *当鼠标移动的时候,要让盒子box跟随鼠标
+          1.监听document的onmousemove事件
+          2.实时获取鼠标的位置,把鼠标的位置坐标设置成元素的left和top
+
+          *盒子不能超出浏览器的可视窗口
+           边界限制的原理:用户看到的是盒子不能超过浏览器窗口;事实上是left
+           和top不能超过某个值,left和top的最小值0;
+           left的最大值=浏览器可视窗口的宽-盒子宽
+           top的最大值=浏览器可视窗口的高-盒子高
+        */
+        let $ = select => document.querySelector(select);
+        let box = $('.box');
+        let maxL = utils.win('clientWidth') - box.offsetWidth;
+        let maxT = utils.win('clientHeight') - box.offsetHeight;
+        let minL = 0;
+        let minT = 0;
+        document.onmousemove = function (e) {
+            let left = e.clientX - box.offsetWidth / 2;
+            let top = e.clientY - box.offsetHeight / 2;
+
+            if (left < minL) {
+                left = minL;
+            }
+            if (left > maxL) {
+                left = maxL
+            }
+            if (top < minT) {
+                top = minT;
+            }
+            if (top > maxT) {
+                top = maxT
+            }
+            box.style.left = left + 'px';
+            box.style.top = top + 'px';
+
+        };
+
+    </script>  -->
+    <!-- 自定义菜单 -->
+    <ul id='menu' style="left:0;top:0;display: none;">
+        <li id="refresh">刷新</li>
+        <li id="baidu"><a href="https://www.baidu.com/">百度</a></li>
+        <li>功能3</li>
+        <li>功能4</li>
+        <li>功能5</li>
+        <li>功能6</li>
+        <li>功能7</li>
+    </ul>
+    <script>
+        /*1.获取鼠标位置
+          2.把ul的left和top设置为鼠标的位置
+          3.把盒子的display属性设为block
+        */
+        let $ = select => document.querySelector(select);
+        let menu = $('#menu');
+        document.oncontextmenu = function (e) {
+            e.preventDefault();
+            menu.style.left=e.clientX + 'px';
+            menu.style.top=e.clientY + 'px';
+            menu.style.display="block";
+        }
+        //增加刷新功能
+        let refresh=$('#refresh');
+        refresh.onclick=function(){
+            //刷新页面
+            window.location.reload();
+            //重新给location的herf赋值
+            // window.location.href=window.location.href;
+        }
+    </script>
+</body>
+
+</html>

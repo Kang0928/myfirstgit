@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      width: 200px;
+      height: 200px;
+      background: #00b38a;
+      z-index: 100;
+    }
+
+    .block {
+      position: absolute;
+      top: 400px;
+      left: 500px;
+      width: 200px;
+      height: 200px;
+      background: deeppink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box" style="left: 100px; top: 100px; width: 200px; height: 200px"></div>
+
+  <div class="block" id="block"></div>
+  <!--当box碰到block时，block的背景颜色变成蓝色-->
+  <script>
+    let box = document.getElementById('box');
+    let block = document.getElementById('block');
+
+    box.onmousedown = dragStart;
+    document.onmouseup = dragEnd;
+
+    function dragStart(e) {
+      this.startX = e.pageX; //开始的鼠标坐标left
+      this.startY = e.pageY; //开始的鼠标坐标top
+      this.startLeft = parseFloat(box.style.left);
+      this.startTop = parseFloat(box.style.top);
+      document.onmousemove = dragMove.bind(this);
+    }
+    function dragMove(e) {
+      let moveX = e.pageX; //移动的鼠标坐标left
+      let moveY = e.pageY; //移动的鼠标坐标top
+      let moveLeft = moveX - this.startX + this.startLeft;
+      let moveTop = moveY - this.startY + this.startTop;
+      box.style.left=moveLeft+'px';
+      box.style.top=moveTop+'px';
+
+      let a=block.style.left-box.offsetWidth; //移动后box的left的值
+      let a=block.style.left-box.offsetWidth; //移动后box的left的值
+
+    }
+    function dragEnd(e) {
+      document.onmousemove = null;
+    }
+    
+  </script>
+</body>
+
+</html>

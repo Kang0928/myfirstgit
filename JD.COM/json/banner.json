@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "img": "img/jsonpicture/json1.png",
+    "desc": "广阔的就业推荐机会",
+    "link": "http://www.zhufengpeixun.cn/"
+  },
+  {
+    "id": 2,
+    "img": "img/jsonpicture/json2.png",
+    "desc": "梦想起飞从选择珠峰培训开始",
+    "link": "http://www.zhufengpeixun.cn/"
+  },
+  {
+    "id": 3,
+    "img": "img/jsonpicture/json3.png",
+    "desc": "把握未来，掌握先机",
+    "link": "http://www.zhufengpeixun.cn/"
+  },
+  {
+    "id": 4,
+    "img": "img/jsonpicture/json4.png",
+    "desc": "先学习，后交费，学不好，不收费",
+    "link": "http://www.zhufengpeixun.cn/"
+  },
+  {
+    "id": 5,
+    "img": "img/jsonpicture/json5.png",
+    "desc": "先学习，后交费，学不好，不收费",
+    "link": "http://www.zhufengpeixun.cn/"
+  }
+]

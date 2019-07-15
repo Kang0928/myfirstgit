@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>封装ajax的方法</title>
+</head>
+<body>
+    <script>
+    // $.ajax({
+    //     url:'banner.json',
+    //     type:'GET',
+    //     cache:false,
+    //     dataType:'json',
+    //     async:true,
+    //     data:{},
+    //     error(err){
+    //         console.log(err);
+    //     },
+    //     success(data){
+    //         console.log(data);
+    //     }
+    // });
+    
+    ajax({
+        url:'banner.json',
+        type:'GET',
+        cache:false,
+        dataType:'json',
+        async:true,
+        data:{
+            key1: 'value1',
+            key2: 'value2'
+        },
+        error(err){
+            console.log(err);
+        },
+        success(data){
+            console.log(data);
+        }
+    });
+    function ajax({url='/',type='GET',cache=false,dataType='json',async='true',data=null,error,success}){
+        // 1.判断，如果是GET请求要把data这个对象转换成问号传参
+        if(type.toUpperCase() === 'GET'){
+            let q=new URLSearchParams();
+            for(let key in data){
+                q.append(key,data[key]);
+            }
+            // 判断是否要清缓存：在问号传参后面拼接一个时间戳或者随机数
+            if(!cache){
+                qs.append('_',Date.now());
+            }
+            let urlStr=q.toString();
+            // 判断原有url末尾是不是有问号，如果有问号就拼接&，如果没有拼接问号；
+            url.includes('?') : 
+        }
+        
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+}
+.container{
+    width:1000px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top:100px; 
+    position: relative;
+    overflow: hidden;
+}
+.container .wrapper{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 4000px;
+    height: 100%;
+    overflow: hidden;
+}
+.container .wrapper .slide{
+    float: left;
+    width: 1000px;
+    height: 100%;
+}
+.container .wrapper .slide img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.focus{
+    position: absolute;
+    bottom:0;
+    left:430px;
+    overflow: hidden;
+    width: 120px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius:10px; 
+}
+.focus li{
+    float: left;
+    width: 10px;
+    height: 10px;
+    background: #eee;
+    margin: 10px 10px;
+    border-radius: 50%;
+}
+.focus li.active{
+    background: red;
+}
+.container .arrow{
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    top:50%;
+    background: url("../img/pre.png")no-repeat;
+    opacity: 0.2;
+}
+.container #arrowr{
+    right: -11px;
+    background-position: -50px 0;
+}
+.container .arrow:hover{
+    opacity: 1;
+}
+

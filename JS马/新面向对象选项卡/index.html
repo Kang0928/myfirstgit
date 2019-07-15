@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向对象选项卡</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .box {
+            width: 604px;
+            height: 400px;
+            border: 1px solid black;
+            margin-top: 50px;
+            margin-left: 200px;
+        }
+
+        .active {
+            width: 604px;
+            border-bottom: 1px solid black;
+        }
+
+        .active li {
+            float: left;
+            width: 200px;
+            text-align: center;
+            padding: 10px 0px;
+            font-size: 25px;
+        }
+
+        .active li.up {
+            background: rgba(209, 240, 72, 0.746);
+        }
+
+        .active li:nth-child(2) {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        .clearfix:after {
+            display: block;
+            content: '';
+            visibility: hidden;
+            clear: both;
+        }
+
+        .box div {
+            display: none;
+            width: 500px;
+            height: 200px;
+            margin-top: 130px;
+            text-align: center;
+        }
+
+        .box div.on {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <ul class="active clearfix">
+            <li class="up">热门</li>
+            <li>秒拍</li>
+            <li>视频</li>
+        </ul>
+        <div class="on">震惊，校长表白毕业生</div>
+        <div>预防头发变白</div>
+        <div>张柏芝遭大张伟追问</div>
+    </div>
+    <div id="box1" class="box">
+        <ul class="active clearfix">
+            <li class="up">热门</li>
+            <li>秒拍</li>
+            <li>视频</li>
+        </ul>
+        <div class="on">震惊，校长表白毕业生</div>
+        <div>预防头发变白</div>
+        <div>张柏芝遭大张伟追问</div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

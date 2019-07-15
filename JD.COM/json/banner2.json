@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "img": "img/banner2/times-1.png",
+    "desc": "锐普 天鲟台钓竿 钓鱼竿手竿 37",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":66.00,
+    "monettwo":129.00
+  },
+  {
+    "id": 2,
+    "img": "img/banner2/times-2.png",
+    "desc": "黑色 真皮男士腰带 耐用质量保真 37",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":66.00,
+    "monettwo":129.00
+  },
+  {
+    "id": 3,
+    "img": "img/banner2/times-3.png",
+    "desc": "安妮克莱因（ANNE KLEIN）手表 ",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":66.00,
+    "monettwo":129.00
+  },
+  {
+    "id": 4,
+    "img": "img/banner2/times-4.png",
+    "desc": "梦想起飞从选择珠峰培训开始",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":66.00,
+    "monettwo":129.00
+  },
+  {
+    "id": 5,
+    "img": "img/banner2/times-5.png",
+    "desc": "把握未来，掌握先机",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":66.00,
+    "monettwo":129.00
+  },
+  {
+    "id": 6,
+    "img": "img/banner2/times-6.png",
+    "desc": "也驴户外 龙动筋膜枪 肌肉按",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":699.00,
+    "monettwo":799.00
+  },
+  {
+    "id": 7,
+    "img": "img/banner2/times-7.png",
+    "desc": "京选20000毫安时充电宝 两万",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":59.00,
+    "monettwo":89.00
+  },
+  {
+    "id": 8,
+    "img": "img/banner2/times-8.png",
+    "desc": "儿童拼插拼装积木玩具大颗粒片",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":12.00,
+    "monettwo":38.00
+  },
+  {
+    "id": 9,
+    "img": "img/banner2/times-9.png",
+    "desc": "酷派（Coolpad） 酷玩7C 3GB",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":488.00,
+    "monettwo":699.00
+  },
+  {
+    "id": 10,
+    "img": "img/banner2/times-10.png",
+    "desc": "雷神（ThundeRobot）911Ai",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":5759.00,
+    "monettwo":6999.00
+  },
+  {
+    "id": 11,
+    "img": "img/banner2/times-11.png",
+    "desc": "小米8 全面屏智能游戏手机",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":1999.00,
+    "monettwo":2999.00
+  },
+  {
+    "id": 12,
+    "img": "img/banner2/times-12.png",
+    "desc": "AMD 锐龙3 2200G 处理器",
+    "link": "http://www.zhufengpeixun.cn/",
+    "monetone":619.00,
+    "monettwo":829.00
+  }
+]

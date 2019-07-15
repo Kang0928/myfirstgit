@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            overflow: hidden;
+        }
+
+        ul li {
+            list-style: none;
+            float: left;
+            width: 40px;
+            background: #f4f4f4;
+            margin-left: 10px;
+            text-align: center;
+            /* font-size: 16px; */
+            height: 20px;
+        }
+
+        #put {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        #reminder {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<!-- <button id="btn">检查</button> -->
+<span>密码：</span>
+<input type="text" id="put">
+<ul>
+    <li>弱</li>
+    <li>中</li>
+    <li>强</li>
+</ul>
+<span id="reminder">*密码格式不正确</span>
+
+<body>
+    <script>
+        var elis = document.getElementsByTagName("li");
+        var eInput = document.getElementById("put");
+        var eReminder = document.getElementById("reminder");
+
+        //判断密码强弱
+        var reg = /^[a-zA-Z0-9]+$/;
+        var reg2 = /\d+/;
+        var reg3 = /[a-z]+/;
+        var reg4 = /[A-Z]+/;
+        eInput.oninput = function () {
+            for (var i = 0; i < elis.length; i++) {
+                elis[i].style.background = "#f4f4f4";
+            }
+
+            if (reg.test(this.value)) {
+
+                if (reg1.test(this.value)) {
+                    elis[0].style.background = "gray";
+                }else if (reg2.test(this.value)) {
+                    
+                    elis[1].style.background = "gray";
+                }else if (reg3.test(this.value)) {
+
+                    elis[2].style.background = "gray";
+                }
+            } else {
+                eReminder.style.display = "block";
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

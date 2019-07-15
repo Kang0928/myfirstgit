@@ -1,0 +1,41 @@
+@size:300px;
+@bg-color:skyblue;
+@color:red;
+@bg-src:"../瀑布流考试康越/img/";
+.box{
+    @size:200px;
+    margin:30px auto;
+    width:@size;
+    height: @size;
+    background: url("@{bg-src}c1.jpg");
+
+    & > p{
+        color:@color;
+    }
+    // &.pub{
+    //     交集选择器
+    // }
+    &:hover{
+        background: url("@{bg-src}c3.jpg");
+    }
+}
+
+// 在less中声明一个函数
+.transition(@property:all,@duration:.5s,@timing-function:linear,@delay:0s){
+    transition: @arguments;
+}
+// 调用一个函数
+@size1:200px;
+@hover-h:300px;
+@m-bg:deeppink;
+.box3{
+    width: @size1;
+    height: @size1;
+    background: @m-bg;
+    .transition(@duration:2s); //调用并使用参数默认值
+
+    &:hover{
+        width: @hover-h;
+        height:@hover-h;
+    }
+}

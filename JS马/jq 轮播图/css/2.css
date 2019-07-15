@@ -1,0 +1,60 @@
+.container{
+    width: 1000px;
+    height: 300px;
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+}
+.wrapper{
+    width: 4000px;
+    position: absolute;
+    left:0px;
+    top: 0px;
+}
+.wrapper .slide{
+    width: 1000px;
+    height: 300px;
+    float: left;
+}
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+.focus{
+    position: absolute;
+    bottom: 0px;
+    left: 450px;
+    width: 58px;
+    height: 18px;
+    border-radius:10%; 
+    background: rgba(0,0,0,.5);
+}
+.focus li{
+    display: block;
+    margin:3px 2px; 
+    width: 10px;
+    height: 10px;
+    background: #eee;
+    float: left;
+    border-radius:50%; 
+}
+.focus li.active{
+    background: red;
+}
+.container .arrow{
+    position: absolute;
+    display: none;
+    background: url('../img/pre.png')no-repeat;
+    opacity: .5;
+    width: 30px;
+    height: 50px;
+    left: 0px;
+    top:50%;
+}
+.container .arrowRight{
+    left: 970px;
+    background-position: -50px 0;
+}
+.container .arrow:hover{
+    opacity: 1;
+}

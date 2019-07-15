@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片懒加载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .b1 {
+            width: 500px;
+            height: 800px;
+            border: 5px dashed goldenrod;
+            background: gainsboro;
+            margin: 0 auto;
+        }
+
+        .b {
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .b img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .b4 {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="b1"></div>
+        <div class="b b2"><img src="img/1.jpg" data-src="img/2.jpg" alt=""></div>
+        <div class="b b3"><img src="img/1.jpg" data-src="img/3.jpg" alt=""></div>
+        <div class="b b4"><img src="img/1.jpg" data-src="img/4.jpg" alt=""></div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script>
+        let eImgs = document.querySelectorAll('img');
+
+        window.onscroll = function () {
+            for(let i=0;i<eImgs.length;i++){
+            let datasrc = eImgs[i].getAttribute('data-src');
+
+            //图片的scrollTop+window.clientHeight==图片的offsetTop+图片高度
+            let ImgoffsetTop = utils.offset(eImgs[i]).top;
+            let ImgclientHeight = document.documentElement.clientHeight;
+
+            let ImgscrollTop = utils.win("scrollTop");
+            console.log(ImgscrollTop, ImgclientHeight, ImgoffsetTop)
+
+            if (ImgscrollTop + ImgclientHeight >= ImgoffsetTop + 200) {
+                let newimg = document.createElement("img");
+                newimg.src = datasrc;
+                newimg.onload = function () {
+                    eImgs[i].src = datasrc;
+                }
+                newimg = null;
+            }
+            }
+            
+        }
+        // let eBox=document.getElementById('box');
+        // let eImgs=document.querySelectorAll('img');
+
+        // let datasrc=eImgs[0].getAttribute('data-src');
+
+        // //图片的scrollTop+window.clientHeight==图片的offsetTop+图片高度
+        // let ImgoffsetTop=utils.offset(eImgs[0]).top;
+        // let ImgclientHeight=document.documentElement.clientHeight;
+        // window.onscroll=function(){
+        //     let ImgscrollTop=utils.win("scrollTop");
+        //     console.log(ImgscrollTop,ImgclientHeight,ImgoffsetTop)
+
+        //     if(ImgscrollTop + ImgclientHeight >= ImgoffsetTop + 200){
+        //         let newimg=document.createElement("img");
+        //         newimg.src=datasrc;
+        //         newimg.onload=function(){
+        //             eImgs[0].src=datasrc;
+        //         }
+        //         newimg=null;
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
