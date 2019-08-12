@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODULIST</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <style>
+    .a{
+        text-decoration: line-through;
+        color: #eee;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-success">
+                        <div class="panel-heading bg-warning">
+                            <h1>{{undone}}</h1>
+                            <input type="text" 
+                            v-model="title" 
+                            v-focus
+                            class="form-control" 
+                            @keydown.enter="add">
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li v-for="(item,index) in filterTodo" :key="index"
+                                class="list-group-item">
+                                    <span>
+                                        <input type="checkbox" v-model="item.isSelector">
+                                    </span>
+                                    <span :class="{a:item.isSelector}">
+                                        {{item.name}}
+                                    </span>
+                                    <span>
+                                        <button class="btn btn-danger btn-xs pull-right" @click="del(index)">
+                                            删除
+                                        </button>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <a v-for="(item,index) in config"
+                            :ket ="index"
+                            style="marginLeft:20px"
+                            :href="item.ishash"
+                            @click="hashchange">{{item.name}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="./axios.js"></script>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                title: '',
+                todoList: [
+                    {
+                        isSelector: false,
+                        name: '吃饭'
+                    },
+                    {
+                        isSelector: false,
+                        name: '睡觉'
+                    }
+                ],
+                config:[
+                    {
+                        name:'全部',
+                        ishash:'#all'
+                    },
+                    {
+                        name:'已完成',
+                        ishash:'#finish'
+                    },{
+                        name:'未完成',
+                        ishash:'#unfinish'
+                    }
+                ],
+                hash:'#all'
+            },
+            created(){
+                window.addEventListener('hashchange',()=>{
+                    this.hash = location.hash;
+                    console.log(this.hash)
+                })
+            },
+            computed:{
+                undone(){
+                    let num = this.todoList.filter(item => !item.isSelector).length;
+                    let msg='';
+                    if(num){
+                        msg = `亲，^_^ 你还有${num}件事没干`;
+                    }else{
+                        msg=`亲，你好棒啊！今天的事情做完了，赶紧休息一下吧~`;
+                    }
+                    return msg;
+                },
+                filterTodo(){
+                    switch(this.hash){
+                        case '#all':
+                        return this.todoList;
+                        case '#finish':
+                        return this.todoList.filter(item => item.isSelector);
+                        case '#unfinish':
+                        return this.todoList.filter(item => !item.isSelector);
+                    }
+                }
+            },
+            methods:{
+                add(){
+                    let newary={
+                        isSelector: false,
+                        name:this.title
+                    };
+                    this.todoList.push(newary);
+                    this.title='';
+                },
+                del(index){
+                    this.todoList.splice(index,1);
+                },
+                hashchange(){
+
+                }
+            },
+            directives:{
+                focus:{
+                    inserted(el){
+                        el.focus();
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

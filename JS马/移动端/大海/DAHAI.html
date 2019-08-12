@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大海考试</title>
+    <script>
+        ; (function (designWidth) {
+            function computedFont() {
+                let winW = document.documentElement.clientWidth || document.body.clientWidth;
+                document.documentElement.style.fontSize = winW / designWidth * 100 + 'px';
+            }
+            computedFont();
+            window.addEventListener('resize', computedFont);
+            // orientationchange 事件时手机横屏书评才会显示
+            window.addEventListener('orientationchange', computedFont);
+        })(750);
+    </script>
+    <link rel="stylesheet" href="./reset.min.css">
+    <link rel="stylesheet/less" href="./index.less">
+    <script src="./less-2.5.3.min.js"></script>
+</head>
+
+<body>
+    <div class="contain">
+        <div class="phone">
+            <input type="text" placeholder="+86:请输入您的手机号">
+        </div>
+        <div class="code">
+            <div><input type="text" placeholder="请输入验证码"></div>
+            <button>发送验证码</button>
+        </div>
+        <div class="name">
+            <div class="box"><input type="text" placeholder="请输入您的姓名"></div>
+            <select name="" id="">
+                
+                <option value="volvo">年级</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+            </select>
+            <div class="sj"></div>
+        </div>
+        <button class="btn">免费试听</button>
+    </div>
+</body>
+
+</html>

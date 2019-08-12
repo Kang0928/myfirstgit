@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <title>2</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-success">
+                        <div class="panel-heading bg-warning">
+                            <span>{{undone}}</span>
+                            <input type="text" 
+                                    v-model="title"
+                                    @keydown.enter="add" 
+                                    v-focus>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li v-for='(item,index) in todu'
+                                    :key='index'>
+                                <input type="checkbox" v-model="item.isSelector">
+                                {{item.name}}
+                                <button @click="del(index)">删除</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <a v-for="(item,index) in hashdata" 
+                                :href="item.ishash">
+                                {{item.name}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                hash:'#all',
+                title: '',
+                todudata: [
+                    {
+                        name: '吃饭',
+                        isSelector: false
+                    },
+                    {
+                        name: '睡觉',
+                        isSelector: false
+                    }
+                ],
+                hashdata: [
+                    {
+                        name: '全部',
+                        ishash: '#all'
+                    },
+                    {
+                        name: '已完成',
+                        ishash: '#finish'
+                    },
+                    {
+                        name: '未完成',
+                        ishash: '#unfinish'
+                    }
+                ]
+            },
+            computed:{
+                undone(){
+                    let num = this.todudata.filter(item => !item.isSelector).length;
+                    let msg='';
+                    if(num){
+                        msg=`亲，^_^ 你还有${num}件事没干`;
+                    }else{
+                        msg='亲,今天的任务都完成了,好好休息吧'
+                    }
+                    return msg;
+                },
+                todu(){
+                    switch(this.hash){
+                        case '#all':
+                        return this.todudata;
+                        case '#finish':
+                        return this.todudata.filter(item => item.isSelector);
+                        case '#unfinish':
+                        return this.todudata.filter(item => !item.isSelector);
+                    }
+                }
+            },
+            created(){
+                window.addEventListener('hashchange',()=>{
+                    this.hash = location.hash;
+                })
+            },
+            methods:{
+                add(){
+                    let newobj={
+                        name: this.title,
+                        isSelector: false
+                    }
+                    this.todudata.push(newobj);
+                    this.title='';
+                },
+                del(index){
+                    this.todudata.splice(index,1);
+                }
+            },
+            directives:{
+                focus:{
+                    inserted(el){
+                        el.focus();
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

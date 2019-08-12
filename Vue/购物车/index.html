@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车 vue</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <h1 class="text-danger">购物车</h1>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <span>全选</span>
+                            <input type="checkbox" 
+                            v-model="checkall"
+                            @change="ckall">
+                            {{checkall}}
+                        </td>
+                        <td>商品</td>
+                        <td>单价</td>
+                        <td>数量</td>
+                        <td>小计</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr v-for="(item,index) in querydata"
+                        :key="index">
+                        <td>
+                            <input type="checkbox" 
+                                   v-model="item.isSelected"
+                                   @change="ckOne">
+                        </td>
+                        <td>
+                            <img :src="item.productCover" alt="" srcset="">
+                            <span>{{item.productInfo}}</span>
+                            <span>{{item.productName}}</span>
+                        </td>
+                        <td>{{item.productPrice}}</td>
+                        <td>
+                            <input type="number" name="" id="" v-model="item.productCount" min="1">
+                        </td>
+                        <td>{{item.productPrice * item.productCount | toRMB}}</td>
+                        <td><button @click="del(index)">删除</button></td>
+                    </tr>
+                    <!-- {
+                        "isSelected": true,
+                        "productCover": "https://img10.360buyimg.com/cms/s80x80_jfs/t6094/107/710811867/382815/4d54717/592bf165N755a88f0.jpg",
+                        "productName": "深入浅出Node.js",
+                        "productInfo": "颜色：Node.js学习",
+                        "productPrice": 57.8,
+                        "productCount": 3
+                      }, -->
+                      <tr>
+                          <td colspan="6">总计:{{sum | toRMB }}</td>
+                      </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<body>
+    <script src="./vue.js"></script>
+    <script src="axios.js"></script>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                checkall:true,
+                querydata:[],
+            },
+            created(){
+                this.getData();
+            },
+            methods:{
+                getData(){
+                    axios.get('carts.json').then(({data})=>{
+                        this.querydata = data;
+                    })
+                },
+                del(index){
+                    this.querydata.splice(index,1);
+                },
+                ckall(){
+                    this.querydata.forEach(item => {
+                        item.isSelected = this.checkall;
+                    });
+                },
+                ckOne(){
+                     this.checkall = this.querydata.every(item=>item.isSelected);
+                }
+                
+            },
+            computed:{
+                sum(){
+                    let ary=this.querydata.filter(item => item.isSelected);
+                    let num=0;
+                    ary.forEach(item=>num += item.productPrice * item.productCount);
+                    return num;
+                }
+            },
+            filters:{
+                toRMB(val,num=2){
+                    return '$' + val.toFixed(num);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
