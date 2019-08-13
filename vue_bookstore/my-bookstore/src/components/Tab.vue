@@ -33,7 +33,6 @@ export default {
     border-top: 1px solid lightblue;
     background: #fff;
     display: flex;
-
     a {
         display: flex;
         flex-direction: column;
@@ -42,10 +41,8 @@ export default {
         font-size: 18px;
         color: #666;
     }
-
     .router-link-active {
         color: red;
-        //vue-router 会给当前选中的路由,一个选中的类名,如果被选中,将添加选中的样式
     }
 }
 </style>

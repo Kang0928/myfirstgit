@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <Header :back="true">详情页</Header>
-    <div class="content">
+  <div class="xiangqing">
+      <Header :isshow="true">详情信息</Header>
       <div class="container">
         <ul>
           <li>
@@ -17,60 +16,56 @@
             <input type="text" v-model="book.bookPrice" />
           </li>
         </ul>
-        <button class="btn">确认修改</button>
+        <button @click="fn">确认修改</button>
       </div>
-    </div>
   </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue'
+import { xiangqingbook, editbook } from '../model/getData' 
 
 export default {
-  name: 'Detail',
+  name: 'xiangqing',
   data () {
-    return {
-      book: {
-        bookName: '',
-        bookInfo: '',
-        bookPrice: ''
+      return {
+          book:{}
       }
-    }
+  },
+  async created () {
+      this.book = await xiangqingbook(this.$route.params.id)
   },
   components: {
     Header
+  },
+  methods: {
+     async fn (bookid) {
+      let isSuccess = await editbook(this.book)
+      if(isSuccess.code === 0){
+        alert(isSuccess.msg)
+      }else{
+        alert(isSuccess.msg)
+      }
+      }
   }
 }
 </script>
 
-<style scoped lang="less">
-  .container {
-    position: fixed;
-    top: 40px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 100%;
-    z-index: 101;
-    background: #fff;
-    padding: 20px;
-
-    li {
-      padding-left: 10px;
-      label {
-        display: block;
+<style lang="less" scoped>
+.container{
+    margin-top:60px;
+    li{
+        list-style: none;
+        margin:20px 0px;
         font-size: 20px;
         font-weight: bold;
-        margin-bottom: 10px;
-      }
-      input {
+        input{
         display: block;
         width: 260px;
-        height: 40px;
+        height: 35px;
         font-size: 20px;
         padding-left: 15px;
-        margin-bottom: 10px;
-      }
+        }
     }
     .btn {
       margin-left: 20px;
@@ -85,5 +80,5 @@ export default {
       color: #fff;
       background: red;
     }
-  }
+}
 </style>

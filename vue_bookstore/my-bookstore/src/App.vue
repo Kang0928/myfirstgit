@@ -17,7 +17,6 @@ export default {
 </script>
 
 <style scoped>
-/*一般app.vue的style标签中写的是全局样式*/
   * {
     margin: 0;
     padding: 0;
@@ -29,7 +28,6 @@ export default {
     text-decoration: none;
   }
   .content {
-    /*内容区域的样式*/
     position: absolute;
     top: 40px;
     bottom: 50px;

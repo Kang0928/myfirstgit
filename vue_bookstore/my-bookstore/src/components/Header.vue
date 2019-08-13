@@ -37,6 +37,7 @@ export default {
   font-size: 20px;
   text-align: center;
   z-index: 100;
+  padding-top:8px; 
 }
 .icon-fanhui {
   position: absolute;
