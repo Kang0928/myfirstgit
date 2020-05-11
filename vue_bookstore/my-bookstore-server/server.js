@@ -73,6 +73,7 @@ app.post('/api/editbook',(req,res)=>{
     let bookIndex = con.findIndex(item => +item.bookId === +req.body.bookId);
     con[bookIndex] = req.body;
     fs.writeFileSync(bookData, JSON.stringify(con), 'utf8');
+    res.send();
 })
 
 // 收藏列表接口

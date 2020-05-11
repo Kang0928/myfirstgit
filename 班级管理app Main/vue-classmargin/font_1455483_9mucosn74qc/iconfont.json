@@ -1,0 +1,156 @@
+{
+  "id": "1455483",
+  "name": "班级app",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10401330",
+      "name": "我 的",
+      "font_class": "wode1",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "2106968",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e6ee",
+      "unicode_decimal": 59118
+    },
+    {
+      "icon_id": "9397434",
+      "name": "办公",
+      "font_class": "bangong",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "10002469",
+      "name": "团队",
+      "font_class": "tuandui",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "877996",
+      "name": "休闲娱乐",
+      "font_class": "xiuxianyule",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "917636",
+      "name": "休闲",
+      "font_class": "xiuxian",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "991007",
+      "name": "美食",
+      "font_class": "meishi",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "5389477",
+      "name": "美食",
+      "font_class": "meishi1",
+      "unicode": "e70c",
+      "unicode_decimal": 59148
+    },
+    {
+      "icon_id": "7823878",
+      "name": "返 回",
+      "font_class": "fanhui",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "9192336",
+      "name": "返 回",
+      "font_class": "fanhui1",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "6219229",
+      "name": "右键",
+      "font_class": "youjian",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "1163336",
+      "name": "设置",
+      "font_class": "set",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "1673478",
+      "name": "书本",
+      "font_class": "book-empty",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "2981856",
+      "name": "关于",
+      "font_class": "guanyu",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "3568832",
+      "name": "加号",
+      "font_class": "iconjia1",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "3689088",
+      "name": "班级",
+      "font_class": "banji",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "7278739",
+      "name": "房子",
+      "font_class": "fangzi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "8955074",
+      "name": "班级",
+      "font_class": "banji1",
+      "unicode": "e774",
+      "unicode_decimal": 59252
+    },
+    {
+      "icon_id": "8973357",
+      "name": "我 的",
+      "font_class": "wode",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "11260370",
+      "name": "设置",
+      "font_class": "set-copy",
+      "unicode": "e775",
+      "unicode_decimal": 59253
+    },
+    {
+      "icon_id": "11260371",
+      "name": "我 的",
+      "font_class": "wode-copy",
+      "unicode": "e776",
+      "unicode_decimal": 59254
+    }
+  ]
+}

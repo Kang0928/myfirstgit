@@ -1,0 +1,96 @@
+.nav-bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    font-size: 15px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #c7d1da;
+    padding: 0 30px;
+    background: #fff;
+    & .monkey{
+      width: 150px;
+      height: 40px;
+      padding-right:30px;
+      img{
+        width:100%;
+        height: 100%;
+      }
+    }
+    i{
+      padding-right:10px;
+    }
+    a {
+      padding: 0 30px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      cursor: pointer;
+  
+      &.active {
+        color: #2189dc;
+      }
+    }
+    .userMan{
+      width: 70px;
+      height: 32px;
+      position: absolute;
+      right:70px;
+      img{
+        width: 32px;
+        height: 32px;
+        float: left;
+        margin-right: 10px;
+      }
+      .xia{
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-top:5px solid #c7d1da;
+        float: left; 
+        margin-top:15px;
+      }
+    }
+    .userBox{
+      position: absolute;
+      box-sizing: border-box;
+      width: 200px;
+      height: 176px;
+      border:1px solid #c7d1da;
+      background: #fff;
+      top:60px;
+      right:65px;
+      font-size: 14px;
+      color: #aaa;
+      line-height: 20px;
+      padding: 5px 20px;
+      cursor: pointer;
+      a{
+        color: #aaa;
+        padding: 0;
+        margin: 10px 0px;
+      }
+      .outBtn{
+        border: 0px;
+        background: #fff;
+        color: #aaa;
+        margin: 10px 0px;
+      }
+      .inBtn{
+        padding: 8px 12px;
+        font-size: 13px;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #3e84e9;
+        border-color:1px solid #3e84e9;
+        margin: 10px 0px;
+      }
+    }
+  }
+  

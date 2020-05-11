@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>班级管理</title>
+    <script>
+      ; (function (designWidth) {
+          function computedFont() {
+              let winW = document.documentElement.clientWidth || document.body.clientWidth;
+              document.documentElement.style.fontSize = winW / designWidth * 100 + 'px';
+          }
+          computedFont();
+          window.addEventListener('resize', computedFont);
+          // orientationchange 事件时手机横屏书评才会显示
+          window.addEventListener('orientationchange', computedFont);
+      })(750);
+  </script>
+  <link rel="stylesheet" href="./reset.min.css">
+  <script src="./less-2.5.3.min.js"></script>
+    <style type="text/css">
+    .icon{ 
+       width: 1em; 
+      height: 1em; 
+       vertical-align: -0.15em; 
+       fill: currentColor; 
+      overflow: hidden;}
+      html,body{margin:auto}
+      </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="./zepto.min.js"></script>
+  </body>
+</html>

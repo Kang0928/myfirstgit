@@ -16,7 +16,7 @@
             <input type="text" v-model="book.bookPrice" />
           </li>
         </ul>
-        <button @click="fn">确认修改</button>
+        <button @click="fn" class="btn">确认修改</button>
       </div>
   </div>
 </template>
@@ -41,13 +41,9 @@ export default {
   methods: {
      async fn (bookid) {
       let isSuccess = await editbook(this.book)
-      if(isSuccess.code === 0){
-        alert(isSuccess.msg)
-      }else{
-        alert(isSuccess.msg)
-      }
-      }
+      this.$router.push('/list')
   }
+}
 }
 </script>
 
@@ -68,7 +64,7 @@ export default {
         }
     }
     .btn {
-      margin-left: 20px;
+      margin-left:40px;
       border: none;
       border-radius: 8px;
       display: block;

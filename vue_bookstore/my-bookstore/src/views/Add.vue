@@ -20,7 +20,7 @@
             <input type="text" v-model="book.bookCover" />
           </li>
         </ul>
-        <button @click="fn">添加</button>
+        <button @click="fn" class="btn">添加</button>
       </div>
   </div>
 </template>
@@ -47,7 +47,41 @@ export default {
   methods: {
     fn(){
       addnewBook(this.book)
+      this.$router.push('/list')
     }
   }
 }
 </script>
+
+<style lang="less" scoped>
+.container{
+    margin-top:60px;
+    li{
+        list-style: none;
+        margin:20px 0px;
+        font-size: 20px;
+        font-weight: bold;
+        input{
+        margin:10px 0px;
+        display: block;
+        width: 260px;
+        height: 35px;
+        font-size: 20px;
+        padding:0px 15px;
+        }
+    }
+    .btn {
+      margin-left:40px;
+      border: none;
+      border-radius: 8px;
+      display: block;
+      width: 260px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      font-size: 20px;
+      color: #fff;
+      background: red;
+    }
+}
+</style>

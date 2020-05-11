@@ -1,0 +1,69 @@
+[
+    {
+        "buyImg":"http://localhost:8003/img/buy1.png",
+        "name":"Air Jordan 1x Nike SB",
+        "price":"￥2599",
+        "id":1
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy2.png",
+        "name":"Air Jordan 1 Retro High 红钩脚趾",
+        "price":"￥1349",
+        "id":2
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy3.png",
+        "name":"Nike Air Foamposite 粉喷",
+        "price":"￥1589",
+        "id":3
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy4.png",
+        "name":"Nike Air Force 1 Low",
+        "price":"￥559",
+        "id":4
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy5.png",
+        "name":"Air Jordan 7 Topaz 糖果色",
+        "price":"￥1219",
+        "id":5
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy6.png",
+        "name":"adidas Yeezy Boost 350",
+        "price":"￥1449",
+        "id":6
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy7.png",
+        "name":"adidas Yeezy Boost 350",
+        "price":"￥2469",
+        "id":7
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy8.png",
+        "name":"adidas Yeezy Boost 350",
+        "price":"￥3019",
+        "id":8
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy9.png",
+        "name":"Nike Stephen Curry",
+        "price":"￥429",
+        "id":9
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy10.png",
+        "name":"Corade 大恐龙短T",
+        "price":"￥149",
+        "id":10
+    },
+    {
+        "buyImg":"http://localhost:8003/img/buy11.png",
+        "name":"Nike Kobe Bryant locn",
+        "price":"￥679",
+        "id":11
+    }
+
+]
